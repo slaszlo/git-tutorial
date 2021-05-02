@@ -128,6 +128,32 @@ The branch is just a lightweight pointer to a commit.
   ```bash
   git push <remote(origin)> --delete <branch>
   ```
+
+### Tags
+
+This functionality is mark an important point of the history (for example a release).
+
+```bash
+git tag my-greatest-product-version-1.0.0.1
+```
+
+Share all `tag`s.
+
+```bash
+git push origin --tags
+```
+
+Or just one `tag`
+
+```bash
+git push origin v1.5
+```
+
+Remove untracked tags
+
+```bash
+git fetch --prune-tags
+```
 [//]: # (References)
 
 [1]: <https://en.wikipedia.org/wiki/Git> (Wiki page of Git)
