@@ -100,6 +100,34 @@ index be419b9..8225649 100644
 +  * [Goto conference video](https://www.youtube.com/watch?v=TfZmuS01CNs)
 +* [Software Design X-Rays - Adam Tornhill](https://pragprog.com/titles/atevol/software-design-x-rays/)
 ```
+
+### Branches
+
+The branch is just a lightweight pointer to a commit.
+
+* Delete unmerged branch
+
+  ```bash
+  git branch -D my-unmerged-branch
+  ```
+
+* Push a local branch into a remote without remote branch
+
+  ```bash
+  git push --set-upstream origin basics
+  ```
+
+* Remove untracked upstream branches:
+
+  ```bash
+  git fetch --prune
+  ```
+
+* Delete  remote branch:
+
+  ```bash
+  git push <remote(origin)> --delete <branch>
+  ```
 [//]: # (References)
 
 [1]: <https://en.wikipedia.org/wiki/Git> (Wiki page of Git)
