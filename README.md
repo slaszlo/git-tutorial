@@ -154,6 +154,47 @@ Remove untracked tags
 ```bash
 git fetch --prune-tags
 ```
+
+### Let's Pick Some Cherry
+
+The `git cherry-pick` applies changes which is alerady exist somewher on your repository. It is useful when you are using a release branches and You don't want to mess it up with merges from the master.
+
+For example you got a master and two release branches. On the first release branch you fix some problem in the `F1` commit. Let's `cherry-pick` it back to the master as `F1'`. Then another release is made. Call it `R2`. This `R2` contains the `F1'` fix but another bug was found by the customuer. So you fix it and `charry-pick` it back to the master.
+
+The visual example of the story:
+
+```text
+A-B-C-F1'-D-E-F2' master
+  \       \
+   \       \
+    \       R2-F2'
+     R1-F1'
+```
+
+Exampe of cherry-pick:
+
+* Sign-off the cherry-picked commit. The sing off is unnecessary, but it makes the history cleaner.
+
+  ```bash
+  git cherry-pick --sing-off <commit-id>
+  ```
+
+* Cherry-pick a range of commit the range start is an excluded commit, the range end is included commit. The begin and the end can be commit hash, tag or branch name
+
+```bash
+git cherry-pick <from[excluded]>..<to[included]>
+```
+
+* A complex example: Apply all changes which are affected a specific file
+
+```bash
+git rev-list --reverse <from>..<to> -- FILE | git cherry-pcik --stdin
+```
+
+#### Example of Cherry-pick
+
+There is a [bash file](examples/git-cherrypick-example.sh) to generate a repository for practicing cherry-picking
+
 [//]: # (References)
 
 [1]: <https://en.wikipedia.org/wiki/Git> (Wiki page of Git)
